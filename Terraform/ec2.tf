@@ -12,8 +12,8 @@ data "aws_ami" "os_image" {
 }
 
 resource "aws_key_pair" "deployer" {
-  key_name   = "bankapp-automate-new-key"
-  public_key = file("bankapp-key.pub")
+  key_name   = "springboot-bankapp-key"
+  public_key = file("springboot-bankapp-key.pub")
 }
 
 resource "aws_default_vpc" "default" {
@@ -66,6 +66,7 @@ resource "aws_instance" "testinstance" {
   instance_type   = var.my_enviroment == "prd" ? "t2.medium" : "t2.large"  
   key_name        = aws_key_pair.deployer.key_name
   security_groups = [aws_security_group.allow_user_to_connect.name]
+  associate_public_ip_address = true  
   tags = {
     Name = "Bankapp-automation-server"
   }

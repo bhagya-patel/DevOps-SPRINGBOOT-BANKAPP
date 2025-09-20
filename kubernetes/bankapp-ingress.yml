@@ -12,10 +12,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - megaproject.trainwithshubham.com
+    - ae59ad5adefb8417eb85e5587e86abee-1533825500.eu-west-1.elb.amazonaws.com
     secretName: bankapp-tls-secret  # Cert-Manager will manage this
   rules:
-  - host: megaproject.trainwithshubham.com
+  - host: ae59ad5adefb8417eb85e5587e86abee-1533825500.eu-west-1.elb.amazonaws.com
     http:
       paths:
       - path: /
@@ -25,3 +25,10 @@ spec:
             name: bankapp-service
             port:
               number: 8080
+      - path: /nginx
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-service
+            port:
+              number: 80

@@ -1,4 +1,7 @@
 ## End-to-End Bank Application Deployment using DevSecOps on AWS EKS
+
+## Full step-by-step blog: https://bhagya-devops-02.hashnode.dev/devsecops-cicd-pipelines-with-eks-deployment-using-argocd ##
+
 - This is a multi-tier bank an application written in Java (Springboot).
 
 ![Login diagram](images/login.png)
